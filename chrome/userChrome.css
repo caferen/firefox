@@ -1,0 +1,143 @@
+:root {
+  --NavbarWidth: 16;
+  --TabsHeight: 36;
+  --TabsBorder: 8;
+  --primary: #000;
+  --accent: rgb(249, 38, 114, 0.7);
+}
+
+#main-window body {
+  flex-direction: column-reverse !important;
+}
+
+/* Based on: https://github.com/Naezr/ShyFox */
+
+#urlbar-container {
+  --toolbar-field-focus-border-color: var(--accent) !important;
+}
+
+#urlbar-input::selection,
+.urlbarView-row[selected] .urlbarView-row-inner {
+  background-color: var(--accent) !important;
+}
+
+#urlbar[focused] {
+  #urlbar-input {
+    font-size: 24px !important;
+  }
+  #urlbar-background {
+    background-color: var(--primary) !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--accent) !important;
+  }
+
+  height: 55px;
+  position: fixed !important;
+  z-index: 999999 !important;
+
+  bottom: auto !important;
+  top: 20vh !important;
+
+  left: 18vw !important;
+  right: 18vw !important;
+  width: 64vw !important;
+}
+
+#urlbar:not([focused]) {
+  max-width: 0px !important;
+}
+
+/* Based on: https://github.com/mimipile/firefoxCSS */
+
+#PanelUI-button {
+  -moz-box-ordinal-group: 0 !important;
+  order: -2 !important;
+  margin: 2px !important;
+}
+
+#identity-box.extensionPage #identity-icon-label {
+  visibility: collapse !important;
+}
+
+#alltabs-button {
+  display: none !important;
+}
+
+#urlbar .search-one-offs {
+  display: none !important;
+}
+
+:root #nav-bar {
+  margin-top: calc(
+    var(--TabsHeight) * -1px - var(--TabsBorder) * 1px
+  ) !important;
+  height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px);
+}
+#TabsToolbar {
+  margin-left: calc(1325px / 100 * var(--NavbarWidth)) !important;
+}
+#nav-bar {
+  margin-right: calc(
+    100vw - calc(1325px / 100 * var(--NavbarWidth))
+  ) !important;
+  vertical-align: center !important;
+}
+toolbarspring {
+  display: none !important;
+}
+
+#navigator-toolbox {
+  border: none !important;
+}
+
+#navigator-toolbox,
+#nav-bar,
+#PersonalToolbar {
+  background-color: var(--primary) !important;
+  border: none !important;
+}
+#nav-bar {
+  margin-left: 3px;
+}
+.tab-background,
+.tab-stack {
+  min-height: calc(var(--TabsHeight) * 1px) !important;
+  background: var(--primary) !important;
+}
+
+#unified-extensions-button {
+  order: -1 !important;
+}
+
+.tabbrowser-tab:not([selected]) .tab-close-button {
+  display: none;
+}
+.tabbrowser-tab:not([selected]) {
+  max-width: 0px !important;
+}
+.tabbrowser-tab:not([selected]) .tab-label-container {
+  display: none;
+}
+.tab-background {
+  border: 1px solid var(--accent) !important;
+}
+
+/* Based on https://github.com/datguypiko/Firefox-Mod-Blur */
+
+#PersonalToolbar {
+  position: absolute !important;
+  bottom: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px) !important;
+  width: 100% !important;
+}
+
+#PersonalToolbar:not([customizing]) {
+  transform: rotateX(270deg) !important;
+  transform-origin: bottom !important;
+  transition: transform 50ms linear 500ms !important;
+  z-index: 2 !important;
+}
+
+#navigator-toolbox:hover > #PersonalToolbar {
+  transition-delay: 100ms !important;
+  transform: rotateX(0) !important;
+}
