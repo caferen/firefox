@@ -112,13 +112,13 @@ toolbarspring {
 .tabbrowser-tab:not([selected]) .tab-close-button {
   display: none;
 }
-.tabbrowser-tab:not([selected]) {
+.tabbrowser-tab:not([selected]):not([pinned]) {
   max-width: 0px !important;
 }
-.tabbrowser-tab:not([selected]) .tab-label-container {
+.tabbrowser-tab:not([selected]):not([pinned]) .tab-label-container {
   display: none;
 }
-.tab-background {
+.tab-background:not([pinned]) {
   border: 1px solid var(--accent) !important;
 }
 
